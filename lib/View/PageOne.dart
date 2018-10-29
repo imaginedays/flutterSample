@@ -1,7 +1,6 @@
-import 'package:flutter_tab/HttpController.dart';
+import 'package:flutter_tab/Network/HttpController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_tab/Model/Photo.dart';
 import 'dart:convert';
 
 class PageOne extends StatefulWidget {
