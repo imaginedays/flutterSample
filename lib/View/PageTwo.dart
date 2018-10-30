@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: new Center(
         child: new RaisedButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pop(context, 'Movie');
             },
             color: Colors.lightBlueAccent,
             child: new Text('回去', style: TextStyle(color: Colors.white))),

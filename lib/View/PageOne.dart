@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_tab/Network/HttpController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -142,12 +144,19 @@ class Page extends State<PageOne> {
     return row;
   }
 
-  void itemTaped(var subject) {
-    Navigator.push(
+  Future itemTaped(var subject) async {
+    //简单传递参数方式
+//    Navigator.push(
+//        context,
+//        MaterialPageRoute(
+//            builder: (context) =>
+//                new PageTwo(Colors.lightGreenAccent, subject['title'])));
+    final result = await Navigator.push(
         context,
         MaterialPageRoute(
             builder: (context) =>
                 new PageTwo(Colors.lightGreenAccent, subject['title'])));
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text('$result')));
   }
 
   Widget getDialog(BuildContext context) {
