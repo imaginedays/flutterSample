@@ -1,6 +1,7 @@
 import 'package:flutter_tab/Network/HttpController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_tab/View/PageTwo.dart';
 import 'dart:convert';
 
 class PageOne extends StatefulWidget {
@@ -73,7 +74,9 @@ class Page extends State<PageOne> {
 
     return Card(
       child: GestureDetector(
-        onTap: itemTaped,
+        onTap: () {
+          itemTaped();
+        },
         child: getItemRowContainer(avatars, subject),
       ),
     );
@@ -140,11 +143,13 @@ class Page extends State<PageOne> {
   }
 
   void itemTaped() {
-    print('itemTaped');
-    getDialog();
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => new PageTwo(Colors.lightGreenAccent)));
   }
 
-  Widget getDialog() {
+  Widget getDialog(BuildContext context) {
     return new AlertDialog(
       title: new Text("点击提示"),
       content: new SingleChildScrollView(
