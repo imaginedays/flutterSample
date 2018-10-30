@@ -154,8 +154,8 @@ class Page extends State<PageOne> {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) =>
-                new PageTwo(Colors.lightGreenAccent, subject['title'])));
+            builder: (context) => new PageTwo(Colors.lightGreenAccent,
+                subject['title'], subject['images']['large'])));
     Scaffold.of(context).showSnackBar(SnackBar(content: Text('$result')));
   }
 
