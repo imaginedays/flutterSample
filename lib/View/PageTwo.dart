@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class PageTwo extends StatelessWidget {
   final Color color;
-  PageTwo(this.color);
+  final String movieName;
+  PageTwo(this.color, this.movieName);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
       appBar: AppBar(
-        title: Text('PageTwo'),
+        title: Text('${movieName}'),
       ),
       body: MyHomePage(),
     );

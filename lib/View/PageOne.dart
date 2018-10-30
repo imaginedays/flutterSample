@@ -75,7 +75,7 @@ class Page extends State<PageOne> {
     return Card(
       child: GestureDetector(
         onTap: () {
-          itemTaped();
+          itemTaped(subject);
         },
         child: getItemRowContainer(avatars, subject),
       ),
@@ -142,11 +142,12 @@ class Page extends State<PageOne> {
     return row;
   }
 
-  void itemTaped() {
+  void itemTaped(var subject) {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => new PageTwo(Colors.lightGreenAccent)));
+            builder: (context) =>
+                new PageTwo(Colors.lightGreenAccent, subject['title'])));
   }
 
   Widget getDialog(BuildContext context) {

@@ -21,7 +21,7 @@ class _HomeState extends State<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My Flutter App'),
+        title: Text('My Movie App'),
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
