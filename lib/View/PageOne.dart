@@ -70,6 +70,16 @@ class Page extends State<PageOne> {
                     NetworkImage(subject['casts'][index]['avatars']['small'])),
           ),
     );
+
+    return Card(
+      child: GestureDetector(
+        onTap: itemTaped,
+        child: getItemRowContainer(avatars, subject),
+      ),
+    );
+  }
+
+  Widget getItemRowContainer(var avatars, var subject) {
     var row = Container(
       margin: EdgeInsets.all(4.0),
       child: Row(
@@ -126,8 +136,34 @@ class Page extends State<PageOne> {
         ],
       ),
     );
-    return Card(
-      child: row,
+    return row;
+  }
+
+  void itemTaped() {
+    print('itemTaped');
+    getDialog();
+  }
+
+  Widget getDialog() {
+    return new AlertDialog(
+      title: new Text("点击提示"),
+      content: new SingleChildScrollView(
+          child: new ListBody(children: <Widget>[new Text("你点击了Item")])),
+      actions: <Widget>[
+        new FlatButton(
+          child: new Text("取消"),
+          onPressed: () {
+            //按钮点击事件
+            Navigator.of(context).pop();
+          },
+        ),
+        new FlatButton(
+          child: new Text("确认"),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
     );
   }
 }
