@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_tab/View/PageTwo.dart';
 import 'dart:convert';
+import 'package:banner_view/banner_view.dart';
 
 class PageOne extends StatefulWidget {
   @override
@@ -42,7 +43,38 @@ class Page extends State<PageOne> {
   }
 
   Widget layout(BuildContext context) {
-    return new Scaffold(body: loadListViewBody());
+    return new Scaffold(
+      body: Center(
+          child: new Container(
+              child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              child: new BannerView(
+                [
+                  Image.network(
+                      'https://raw.githubusercontent.com/yangxiaoweihn/BannerView/master/screenshot/device-s-image-0.jpg'),
+                  Image.network(
+                      'https://raw.githubusercontent.com/yangxiaoweihn/BannerView/master/screenshot/device-s-image-1.jpg'),
+                  Image.network(
+                      'https://raw.githubusercontent.com/yangxiaoweihn/BannerView/master/screenshot/device-s-gif-0.gif'),
+                ],
+                autoRolling: true,
+                cycleRolling: true,
+              ),
+            ),
+            flex: 1,
+          ),
+          Expanded(
+            child: Container(
+              child: loadListViewBody(),
+            ),
+            flex: 2,
+          ),
+        ],
+      ))),
+    );
   }
 
   Widget loadListViewBody() {
@@ -154,8 +186,8 @@ class Page extends State<PageOne> {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => new PageTwo(Colors.lightGreenAccent,
-                subject['title'], subject['images']['large'])));
+            builder: (context) =>
+                new PageTwo(subject['title'], subject['images']['large'])));
     Scaffold.of(context).showSnackBar(SnackBar(content: Text('$result')));
   }
 

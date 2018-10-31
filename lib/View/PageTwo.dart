@@ -5,10 +5,9 @@ import 'dart:async';
 var globalPicUrl;
 
 class PageTwo extends StatelessWidget {
-  final Color color;
   final String movieName;
   final String picUrl;
-  PageTwo(this.color, this.movieName, this.picUrl) {
+  PageTwo(this.movieName, this.picUrl) {
     globalPicUrl = picUrl;
   }
   @override
